@@ -1,0 +1,99 @@
+@import 'tailwindcss';
+
+:root {
+    --background: #ffffff;
+    --foreground: #0b0b0b;
+    --primary-red: #d10225;
+}
+
+@theme {
+    --breakpoint-sm: 40rem;
+    --breakpoint-md: 48rem;
+    --breakpoint-desktop: 64rem;
+    --breakpoint-xl: 80rem;
+    --breakpoint-2xl: 96rem;
+}
+
+@theme inline {
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+    --color-primary-red: var(--primary-red);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background: #090909;
+        --foreground: #ededed;
+    }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 0px;
+}
+
+/* ::-webkit-scrollbar-track {
+    background: hsl(var(--custom-black-800));
+}
+
+::-webkit-scrollbar-thumb {
+    background: hsl(262 83% 58%);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: hsl(262 83% 68%);
+} */
+
+/* Hide Chrome autofill background and keep it transparent */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0px 1000px transparent inset !important;
+    box-shadow: 0 0 0px 1000px transparent inset !important;
+    -webkit-text-fill-color: #fff !important; /* your text color */
+    transition: background-color 9999s ease-in-out 0s;
+}
+
+::selection {
+    background: hsl(262 83% 58% / 0.3);
+    color: hsl(var(--foreground));
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--background);
+    color: var(--foreground);
+    font-family: inherit;
+}
+
+.text-stroke {
+    color: white;
+    -webkit-text-stroke: 2px transparent;
+
+    background: linear-gradient(90deg, #d10225, #93041c);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: white;
+
+    background-clip: text;
+    box-decoration-break: clone;
+}
+
+.text-stroke-lg {
+    -webkit-text-stroke: 4px transparent !important;
+}
+
+@media (min-width: 1024px) {
+    a,
+    input,
+    textarea,
+    button {
+        cursor: none;
+    }
+}
