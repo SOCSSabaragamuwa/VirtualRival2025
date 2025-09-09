@@ -26,7 +26,7 @@ const Preloader = () => {
                 autoPlay
                 muted
                 playsInline
-                className="absolute inset-0 h-full w-full object-cover"
+                className="absolute inset-0 h-full w-full object-scale-down lg:object-cover"
             >
                 <source src="/videos/preloader.mp4" type="video/mp4" />
                 <source src="/videos/preloader.webm" type="video/webm" />
