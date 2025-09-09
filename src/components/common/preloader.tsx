@@ -6,7 +6,7 @@ const Preloader = () => {
 
     useEffect(() => {
         const handleLoad = () => {
-            setTimeout(() => setLoading(false), 8000)
+            setTimeout(() => setLoading(false), 3000)
         }
 
         if (document.readyState === 'complete') {
