@@ -44,7 +44,6 @@ const Header = () => {
                         )
                         if (match) {
                             setActive(match.label)
-                            history.replaceState(null, '', `#${id}`)
                         }
                     }
                 })
@@ -73,7 +72,6 @@ const Header = () => {
         if (target) {
             setIsScrolling(true)
             setActive(label)
-            history.replaceState(null, '', href)
 
             const headerOffset = 56
             const elementPosition =
@@ -110,7 +108,6 @@ const Header = () => {
                             }
                             className="relative px-2 py-2 text-sm font-bold tracking-widest text-white uppercase transition-colors"
                         >
-                            {/* Label */}
                             <span
                                 className={`transition-colors ${
                                     active === item.label
@@ -121,7 +118,6 @@ const Header = () => {
                                 {item.label}
                             </span>
 
-                            {/* Nav-indicator */}
                             {active === item.label && (
                                 <motion.div
                                     layoutId="active-indicator"
@@ -150,7 +146,7 @@ const Header = () => {
                     <PrimaryButton
                         text="register now"
                         size="small"
-                        href="#register"
+                        onClick={() => handleScrollTo('#register', 'Register')}
                     />
                 </div>
 
@@ -196,7 +192,9 @@ const Header = () => {
                             <PrimaryButton
                                 text="register now"
                                 size="base"
-                                href="#register"
+                                onClick={() =>
+                                    handleScrollTo('#register', 'Register')
+                                }
                             />
                         </motion.div>
                     )}

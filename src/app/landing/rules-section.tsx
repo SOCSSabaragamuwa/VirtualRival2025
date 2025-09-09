@@ -13,12 +13,7 @@ const RulesSection = () => {
                 <div className="flex flex-col items-center gap-8">
                     <SectionHeader
                         title="Play Fair. Play Hard."
-                        description="Every rivalry is built on fair play. To keep the
-                        competition exciting and equal for everyone, all players
-                        must follow the official rules and guidelines. From team0.
-                        eligibility to gameplay conduct, these regulations
-                        ensure a smooth, professional, and enjoyable experience
-                        for all faculties."
+                        description="Every rivalry is built on fair play. To keep the competition exciting and equal for everyone, all players must follow the official rules and guidelines. From team eligibility to gameplay conduct, these regulations ensure a smooth, professional, and enjoyable experience for all participants."
                     />
 
                     <PrimaryButton

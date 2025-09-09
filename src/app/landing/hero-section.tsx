@@ -1,3 +1,5 @@
+'use client'
+
 import React from 'react'
 import LandingPageLayout from '../../components/layouts/landing-page-layout'
 import Image from 'next/image'
@@ -42,10 +44,18 @@ const HeroSection = () => {
 
                     <PrimaryButton
                         text="join the rivaly"
-                        href="#countdown"
                         size="large"
                         isGlow={true}
                         iconSrc={'/icons/game-console-icon.svg'}
+                        onClick={() => {
+                            const target = document.getElementById('countdown')
+                            if (target) {
+                                target.scrollIntoView({
+                                    behavior: 'smooth',
+                                    block: 'start',
+                                })
+                            }
+                        }}
                     />
                 </div>
             </LandingPageLayout>

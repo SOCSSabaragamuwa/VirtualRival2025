@@ -41,7 +41,6 @@ const GamesSection = () => {
         return () => cancelAnimationFrame(rafId)
     }, [isUserInteracting])
 
-    // 🖱️ Drag-to-scroll
     useEffect(() => {
         const container = containerRef.current
         if (!container) return
