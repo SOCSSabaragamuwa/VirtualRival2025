@@ -10,8 +10,8 @@ const chakraPetch = Chakra_Petch({
 })
 
 export const metadata: Metadata = {
-    title: 'Virtual Rivals',
-    description: 'Virtual rivals definitive edition',
+    title: 'Virtual Rival',
+    description: 'Virtual rival definitive edition',
     icons: {
         icon: '/favicon.jpg',
     },
