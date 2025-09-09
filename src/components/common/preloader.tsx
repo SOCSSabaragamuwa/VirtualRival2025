@@ -5,9 +5,8 @@ const Preloader = () => {
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
-        // Simulate a loading delay or wait for window load
         const handleLoad = () => {
-            setTimeout(() => setLoading(false), 1200) // fade after 1.2s
+            setTimeout(() => setLoading(false), 8000)
         }
 
         if (document.readyState === 'complete') {
@@ -21,8 +20,18 @@ const Preloader = () => {
     if (!loading) return null
 
     return (
-        <div className="bg-background fixed inset-0 z-[9999] flex items-center justify-center lg:cursor-none">
-            <div className="border-primary-red h-16 w-16 animate-spin rounded-full border-4 border-t-transparent"></div>
+        <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black">
+            {/* Background video */}
+            <video
+                autoPlay
+                muted
+                playsInline
+                className="absolute inset-0 h-full w-full object-cover"
+            >
+                <source src="/videos/preloader.mp4" type="video/mp4" />
+                <source src="/videos/preloader.webm" type="video/webm" />
+                Your browser does not support the video tag.
+            </video>
         </div>
     )
 }
