@@ -1,3 +1,5 @@
+import ContactEmailTemplate from '@/components/email-templates/contact-email-template'
+import ContactReplyEmailTemplate from '@/components/email-templates/contact-reply-email-template'
 import { NextResponse } from 'next/server'
 import { Resend } from 'resend'
 
@@ -11,25 +13,15 @@ export async function POST(req: Request) {
             from: 'Virtual Rival <contact@virtualrival.lk>',
             to: ['contact@virtualrival.lk'],
             subject: `New Inquiry from ${name}`,
-            html: `
-        <h2>New Inquiry Received</h2>
-        <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Phone:</strong> ${phone}</p>
-        <p><strong>Message:</strong> ${message}</p>
-      `,
+            react: ContactEmailTemplate({ name, email, phone, message }),
         })
 
         // confirmation email to user
         await resend.emails.send({
             from: 'Virtual Rival <contact@virtualrival.lk>',
             to: [email],
-            subject: 'We received your inquiry 🎉',
-            html: `
-    <p>Hi ${name},</p>
-    <p>Thanks for contacting <b>Virtual Rival</b>. We’ve received your inquiry and will get back to you soon.</p>
-    <p>Best regards,<br/>Team Virtual Rival</p>
-  `,
+            subject: 'We received your inquiry 🎮',
+            react: ContactReplyEmailTemplate({ name }),
         })
 
         return NextResponse.json({ success: true })

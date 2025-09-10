@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@react-email/render": "^1.2.3",
     "@types/three": "^0.179.0",
     "clsx": "^2.1.1",
     "emailjs-com": "^3.2.0",

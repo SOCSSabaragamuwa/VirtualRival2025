@@ -77,7 +77,7 @@ const TeamRegistrationSection = () => {
         return true
     }
 
-    const handleSubmit = async (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
 
         if (!validateForm()) return
@@ -93,13 +93,34 @@ const TeamRegistrationSection = () => {
             })
 
             const res = await fetch(
-                `https://script.google.com/macros/s/AKfycbyL11F5kQikrGW0UVw2ZCVVcCdfyDNuiUksxCoQd-SWLXyATXe-aBNqsZb1TQweesoz3g/exec?${params.toString()}`
+                `https://script.google.com/macros/s/AKfycbxWU2Xxk1zs3FWHeZLVI4m505qUgY1THxftvoY_EJaTIs-18g1HjvbE6ly6eyd0NUYG/exec?${params.toString()}`
             )
-
             const result = await res.json()
 
             if (result.success) {
                 toast.success('Team registered successfully!')
+
+                try {
+                    const emailRes = await fetch('/api/register', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            selectedGame,
+                            teamName,
+                            email,
+                            contactNumber,
+                            players,
+                        }),
+                    })
+
+                    if (!emailRes.ok) {
+                        console.error('Failed to send confirmation email')
+                    }
+                } catch (err) {
+                    console.error('Error calling /api/register:', err)
+                }
+
+                // Reset form
                 setSelectedGame('')
                 setPlayerCount(0)
                 setTeamName('')
@@ -109,8 +130,8 @@ const TeamRegistrationSection = () => {
             } else {
                 toast.error(result.message || 'Something went wrong')
             }
-            // eslint-disable-next-line @typescript-eslint/no-unused-vars
         } catch (error) {
+            console.error(error)
             toast.error('Failed to register team')
         } finally {
             setLoading(false)
