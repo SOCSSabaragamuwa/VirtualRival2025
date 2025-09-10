@@ -58,30 +58,24 @@ const AboutUsSection = () => {
 
                     <div className="flex flex-col gap-4 sm:col-span-2">
                         <h2 className="text-3xl font-bold md:text-4xl">
-                            Where Skill Meets Strategy
+                            THIS IS IT! The Ultimate Gaming Experience is Here!
                         </h2>
                         <p className="space-y-6 text-justify text-base leading-relaxed font-medium md:text-lg">
-                            <span>
-                                Virtual Rival is an electrifying inter-faculty
-                                eSports competition hosted by the Society of
-                                Computer Sciences, Sabaragamuwa University of
-                                Sri Lanka.
-                            </span>
-                            <span>
-                                This annual gaming showdown is more than just a
-                                battle. It’s a celebration of teamwork,
-                                strategy, and the competitive spirit of our
-                                university. Whether you’re a casual challenger
-                                or a competitive pro, Virtual Rival is your
-                                chance to rise above, represent your faculty,
-                                and make history.
-                            </span>
-                            <span>
-                                Organized with professionalism and fairness,
-                                Virtual Rival connects faculties, builds
-                                community, and crowns the true champions of our
-                                university.
-                            </span>
+                            <span className="text-primary-red font-bold">
+                                Virtual Rival
+                            </span>{' '}
+                            is an electrifying inter-faculty eSports competition
+                            hosted by the Society of Computer Sciences,
+                            Sabaragamuwa University of Sri Lanka. This annual
+                            gaming showdown is more than just a battle. It’s a
+                            celebration of teamwork, strategy, and the
+                            competitive spirit of our university. Whether you’re
+                            a casual challenger or a competitive pro, Virtual
+                            Rival is your chance to rise above, represent your
+                            faculty, and make history. Organized with
+                            professionalism and fairness, Virtual Rival connects
+                            faculties, builds community, and crowns the true
+                            champions of our university.
                         </p>
                     </div>
 

@@ -6,7 +6,6 @@ import PrimaryButton from '@/components/common/primary-button'
 import LandingPageLayout from '@/components/layouts/landing-page-layout'
 import Image from 'next/image'
 import React, { useRef, useState } from 'react'
-import emailjs from 'emailjs-com'
 import toast from 'react-hot-toast'
 
 const ContactSection = () => {
@@ -43,33 +42,34 @@ const ContactSection = () => {
         return true
     }
 
-    const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
+    const sendEmail = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
-
-        if (!validateForm()) return
-        if (!formRef.current) return
+        if (!validateForm() || !formRef.current) return
 
         setLoading(true)
 
-        emailjs
-            .sendForm(
-                'YOUR_SERVICE_ID',
-                'YOUR_TEMPLATE_ID',
-                formRef.current,
-                'YOUR_PUBLIC_KEY'
-            )
-            .then(
-                () => {
-                    toast.success('Message sent successfully')
-                    setLoading(false)
-                    formRef.current?.reset()
-                },
-                (error) => {
-                    console.error(error.text)
-                    toast.error('Failed to send message')
-                    setLoading(false)
-                }
-            )
+        const formData = new FormData(formRef.current)
+        const data = Object.fromEntries(formData.entries())
+
+        try {
+            const res = await fetch('/api/contact', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data),
+            })
+
+            if (res.ok) {
+                toast.success('Message sent successfully')
+                formRef.current.reset()
+            } else {
+                toast.error('Failed to send message')
+            }
+        } catch (err) {
+            console.error(err)
+            toast.error('Something went wrong')
+        } finally {
+            setLoading(false)
+        }
     }
 
     return (

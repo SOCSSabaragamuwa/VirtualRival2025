@@ -41,10 +41,7 @@ const PriceSection = () => {
                 <div className="flex w-full flex-col items-center gap-12 sm:gap-24">
                     <SectionHeader
                         title="glory awaits the champions"
-                        description="Beyond the competition, Virtual Rival rewards skill,
-                              teamwork, and spirit. From trophies and cash prizes to
-                              medals and special titles, every victory is a mark of
-                              pride and excellence."
+                        description="Beyond the competition, Virtual Rival celebrates skill, teamwork, and spirit. Every little victory here gets the spotlight it deserves."
                     />
 
                     <div className="flex w-full justify-center">

@@ -5,8 +5,20 @@ const Preloader = () => {
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
+        if (loading) {
+            document.body.style.overflow = 'hidden'
+        } else {
+            document.body.style.overflow = 'auto'
+        }
+
+        return () => {
+            document.body.style.overflow = 'auto'
+        }
+    }, [loading])
+
+    useEffect(() => {
         const handleLoad = () => {
-            setTimeout(() => setLoading(false), 3000)
+            setTimeout(() => setLoading(false), 1200)
         }
 
         if (document.readyState === 'complete') {
@@ -20,18 +32,8 @@ const Preloader = () => {
     if (!loading) return null
 
     return (
-        <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black">
-            {/* Background video */}
-            <video
-                autoPlay
-                muted
-                playsInline
-                className="absolute inset-0 h-full w-full object-scale-down lg:object-cover"
-            >
-                <source src="/videos/preloader.mp4" type="video/mp4" />
-                <source src="/videos/preloader.webm" type="video/webm" />
-                Your browser does not support the video tag.
-            </video>
+        <div className="bg-background fixed inset-0 z-[9999] flex items-center justify-center lg:cursor-none">
+            <div className="border-primary-red h-16 w-16 animate-spin rounded-full border-4 border-t-transparent"></div>
         </div>
     )
 }
