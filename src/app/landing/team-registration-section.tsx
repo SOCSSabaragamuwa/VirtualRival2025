@@ -149,7 +149,7 @@ const TeamRegistrationSection = () => {
                 <div className="flex flex-col items-center gap-12">
                     <SectionHeader
                         title="Enter the arena"
-                        description="Gather your squad, choose your game, and represent your faculty in the ultimate rivalry. This is your chance to play with pride and fight for glory."
+                        description="Squad up, lock in your game, and bring the heat! Represent your faculty in the ultimate rivalry. This is your moment to play with pride and battle for glory!"
                     />
 
                     <form
