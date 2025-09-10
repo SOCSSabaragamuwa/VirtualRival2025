@@ -57,7 +57,11 @@ export default function TeamRegistrationEmailTemplate({
                 Along with this email, please review the official Rules &
                 Regulations:
                 <br />
-                <a href="https://virtualrival.lk/pdfs/virtual-rival-rules.pdf">
+                <a
+                    href="https://drive.google.com/file/d/114jyR2GTCEnmzhyACPe1swTaoVg34hXK/view?usp=sharing"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
                     Download Rules & Regulations (PDF)
                 </a>
             </p>
