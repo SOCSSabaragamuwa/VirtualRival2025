@@ -16,7 +16,7 @@ const TeamRegistrationSection = () => {
     const [contactNumber, setContactNumber] = useState('')
     const [players, setPlayers] = useState<string[]>([])
     const [loading, setLoading] = useState(false)
-    const registrationEnd = new Date('2025-09-16T23:59:00')
+    const registrationEnd = new Date('2025-09-17T23:59:00')
     const [isOpen, setIsOpen] = useState(new Date() < registrationEnd)
 
     useEffect(() => {

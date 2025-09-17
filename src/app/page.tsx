@@ -11,6 +11,7 @@ import CustomCursor from '@/components/animation/custom-cursor'
 import Footer from '@/components/common/footer'
 import ContactSection from './landing/contact-section'
 import TeamRegistrationSection from './landing/team-registration-section'
+import SponsorsSection from './landing/sponsors-section'
 
 const LandingPage = () => {
     return (
@@ -23,6 +24,7 @@ const LandingPage = () => {
                 <CustomCursor />
                 <HeroSection />
                 <AboutUsSection />
+                <SponsorsSection/>
                 <CountDownSection targetDate={'2025-09-19'} />
                 <GamesSection />
                 <RulesSection />
